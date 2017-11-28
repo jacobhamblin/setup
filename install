@@ -9,15 +9,14 @@ sudo chmod +x ./rg
 sudo cp ./rg /usr/local/bin/rg
 sudo chmod +x ./fzf
 sudo cp ./fzf /usr/local/bin/fzf
-sudo cp -r ./.vim ~/.vim
 sudo cp ./.vimrc ~/.vimrc
 sudo cp ./.tmux.conf ~/.tmux.conf
 sudo cp ./.tmux.conf.local ~/.tmux.conf.local
 sudo cp ./.bashrc ~/.bashrc
 sudo cp ./gitconfig ~/.gitconfig
 sudo cp ./gitignore_global ~/.gitignore_global
-sudo cp ./.nvm ~/.nvm
 
+git clone https://github.com/creationix/nvm.git ~/.nvm
 original_dir=$(pwd)
 alias go_nvm="cd ~/.vim"
 go_nvm
