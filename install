@@ -1,14 +1,18 @@
 #!/bin/bash
 
+echo "updating package lists"
 sudo apt-get update
+echo "installing vim, tmux, xclip"
 sudo apt-get install vim
 sudo apt-get install tmux
 sudo apt-get install xclip
 
+echo "installing ripgrep, fzf"
 sudo chmod +x ./rg
 sudo cp ./rg /usr/local/bin/rg
 sudo chmod +x ./fzf
 sudo cp ./fzf /usr/local/bin/fzf
+echo "copying vim, tmux, bash, git config"
 sudo cp ./.vimrc ~/.vimrc
 sudo cp ./.tmux.conf ~/.tmux.conf
 sudo cp ./.tmux.conf.local ~/.tmux.conf.local
@@ -16,6 +20,7 @@ sudo cp ./.bashrc ~/.bashrc
 sudo cp ./gitconfig ~/.gitconfig
 sudo cp ./gitignore_global ~/.gitignore_global
 
+echo "installing nvm, node"
 git clone https://github.com/creationix/nvm.git ~/.nvm
 original_dir=$(pwd)
 alias go_nvm="cd ~/.vim"
@@ -29,3 +34,5 @@ nvm install node
 nvm use node
 npm install -g prettier
 npm install -g babel-cli
+
+echo "finish!"
