@@ -1,0 +1,32 @@
+#!/bin/bash
+
+sudo apt-get update
+sudo apt-get install vim
+sudo apt-get install tmux
+sudo apt-get install xclip
+
+sudo chmod +x ./rg
+sudo cp ./rg /usr/local/bin/rg
+sudo chmod +x ./fzf
+sudo cp ./fzf /usr/local/bin/fzf
+sudo cp -r ./.vim ~/.vim
+sudo cp ./.vimrc ~/.vimrc
+sudo cp ./.tmux.conf ~/.tmux.conf
+sudo cp ./.tmux.conf.local ~/.tmux.conf.local
+sudo cp ./.bashrc ~/.bashrc
+sudo cp ./gitconfig ~/.gitconfig
+sudo cp ./gitignore_global ~/.gitignore_global
+sudo cp ./.nvm ~/.nvm
+
+original_dir=$(pwd)
+alias go_nvm="cd ~/.vim"
+go_nvm
+git checkout v0.33.6
+. nvm.sh
+alias go_original_dir="cd $original_dir"
+go_original_dir
+source ~/.bashrc
+nvm install node
+nvm use node
+npm install -g prettier
+npm install -g babel-cli

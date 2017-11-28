@@ -1,0 +1,5 @@
+[user]
+	name = Jacob Hamblin
+	email = jacob@hamblin.cc
+[core]
+	excludesfile = /home/jacob/.gitignore_global
