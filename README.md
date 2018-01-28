@@ -1,4 +1,4 @@
 # setup
 - clone repo
-- `sudo chmod +x ~/setup/setup`
-- `~/setup/setup`
+- `sudo chmod +x ~/setup/install`
+- `~/setup/install`
