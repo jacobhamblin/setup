@@ -23,7 +23,7 @@ sudo cp ./gitignore_global ~/.gitignore_global
 echo "installing nvm, node"
 git clone https://github.com/creationix/nvm.git ~/.nvm
 original_dir=$(pwd)
-alias go_nvm="cd ~/.vim"
+alias go_nvm="cd ~/.nvm"
 go_nvm
 git checkout v0.33.6
 . nvm.sh

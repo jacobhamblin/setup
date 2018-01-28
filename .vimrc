@@ -22,6 +22,7 @@ Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier'
 Plug 'garbas/vim-snipmate'
 Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install -all '}
 Plug 'junegunn/fzf.vim'
 call plug#end()
 set rtp+=~/.fzf
