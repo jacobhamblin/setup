@@ -159,3 +159,4 @@ srep() {
 }
 
 alias leave_master="git branch | grep -v "master" | xargs git branch -D"
+export DOCKER_HOST='tcp://0.0.0.0:2375'
