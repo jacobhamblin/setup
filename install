@@ -19,6 +19,8 @@ sudo cp ./.tmux.conf.local ~/.tmux.conf.local
 sudo cp ./.bashrc ~/.bashrc
 sudo cp ./gitconfig ~/.gitconfig
 sudo cp ./gitignore_global ~/.gitignore_global
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 echo "installing nvm, node"
 git clone https://github.com/creationix/nvm.git ~/.nvm
