@@ -159,3 +159,7 @@ srep() {
 }
 
 alias leave_master="git branch | grep -v "master" | xargs git branch -D"
+
+set_brightness() {
+  xrandr --output eDP-1 --brightness 0.5
+}

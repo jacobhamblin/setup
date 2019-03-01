@@ -15,10 +15,14 @@ Plug 'colepeters/spacemacs-theme.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'nightsense/snow'
+Plug 'albertorestifo/github.vim'
 Plug 'millermedeiros/vim-esformatter'
 Plug 'tpope/vim-fugitive'
 Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
+Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'prettier/vim-prettier'
 Plug 'garbas/vim-snipmate'
 Plug 'tpope/vim-surround'
@@ -49,6 +53,8 @@ let delimitMate_expand_cr=1
 set hlsearch
 let g:prettier#autoformat = 0
 let g:prettier#config#parser = 'babylon'
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#bracket_spacing = 'true'
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql Prettier
 " let g:ctrlp_use_caching = 0
 let g:syntastic_javascript_checkers=['eslint']
@@ -60,3 +66,7 @@ nmap <Leader>r :Tags<CR>
 nmap <c-p> :GFiles<CR>
 nmap <c-f> :Find 
 let $FZF_DEFAULT_COMMAND='rg --files'
+" Highlight ES6 template strings
+hi link javaScriptTemplateDelim String
+hi link javaScriptTemplateVar Text
+hi link javaScriptTemplateString String
