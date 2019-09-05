@@ -29,7 +29,10 @@ cd $original_dir
 source ~/.bashrc
 nvm install node
 nvm use node
-npm install -g prettier
-npm install -g babel-cli
+npm install -g babel-cli gulp gulp-cli prettier
+
+echo "couple tweaks"
+echo fs.inotify.max_user_watches=16384 | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
 
 echo "finish!"

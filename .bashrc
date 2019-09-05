@@ -167,3 +167,12 @@ set_brightness() {
 get_ip() {
   ip addr | grep eth0
 }
+
+export EDITOR=$(which vi)
+export BEVY_VARIATION=demo
+
+b_frontend() {
+  sudo docker-compose stop frontend
+  sudo chown jacob:jacob -R theme/static
+  gulp dev
+}
