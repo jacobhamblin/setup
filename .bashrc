@@ -120,6 +120,10 @@ scommit() {
   git commit -am "[SGP-$1] $2"
 }
 
+boe() {
+  git commit -am "[BOE-$1] $2"
+}
+
 alias install_req='sudo docker-compose exec app pip install -r ../requirements.txt'
 
 alias vim='export TERM=xterm+256colors && vim'
