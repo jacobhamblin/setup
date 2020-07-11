@@ -2,9 +2,19 @@
 
 echo "updating package lists"
 sudo apt-get update
-echo "installing vim, tmux, xclip"
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  echo "installing brew, tmux"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  brew cask install iterm2
+  brew install tmux
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  echo "installing tmux"
+  sudo apt-get install tmux
+fi
+
+echo "installing vim, xclip"
 sudo apt-get install vim
-sudo apt-get install tmux
 sudo apt-get install xclip
 
 echo "installing ripgrep, fzf"

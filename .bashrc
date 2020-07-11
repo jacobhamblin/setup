@@ -72,30 +72,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -116,15 +92,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-scommit() {
-  git commit -am "[SGP-$1] $2"
-}
-
-boe() {
-  git commit -am "[BOE-$1] $2"
-}
-
-alias install_req='sudo docker-compose exec app pip install -r ../requirements.txt'
 
 alias vim='export TERM=xterm+256colors && vim'
 
@@ -132,8 +99,7 @@ if [[ ! $TERM =~ screen ]]; then
     exec tmux -2
 fi
 
-export NVM_DIR="/home/jacob/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -f ~/.terminal-config-cross-platform ] && source ~/.terminal-config-cross-platform
 
 # fzf with ripgrep
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -142,38 +108,7 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 bind -x '"\C-p": vim $(fzf);'
 
-# search git log
-fzf_log() {  
-  hash=$(git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"
-  "$@" |  fzf | awk '{print $1}')
-  echo $hash | xclip
-  git showtool $hash
-}
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-alias lynx='lynx -vikeys'
-set -o vi
-
-# search and replace
-srep() {
-  rg -l $1 | xargs sed -i "s/$1/$2/g"
-}
-
-alias leave_master="git branch | grep -v "master" | xargs git branch -D"
-
-set_brightness() {
-  xrandr --output eDP-1 --brightness 0.5
-}
-
-get_ip() {
-  ip addr | grep eth0
-}
-
-export EDITOR=$(which vi)
-export BEVY_VARIATION=demo
+alias install_req='sudo docker-compose exec app pip install -r ../requirements.txt'
 
 b_frontend() {
   sudo docker-compose stop frontend
