@@ -18,3 +18,6 @@ b_frontend() {
 }
 
 tmux
+
+eval "$(starship init zsh)"
+[[ -s "/etc/profile.d/grc.zsh" ]] && source /etc/profile.d/grc.zsh

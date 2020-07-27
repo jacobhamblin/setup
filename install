@@ -4,16 +4,20 @@ echo "updating package lists"
 sudo apt-get update
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  echo "installing brew, tmux, ripgrep"
+  echo "installing brew, tmux, ripgrep, starship, grc"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   brew cask install iterm2
   brew install tmux
   brew install ripgrep
+  brew install starship
+  brew install grc
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  echo "installing tmux, ripgrep"
+  echo "installing tmux, ripgrep, starship, grc"
   sudo apt-get install tmux
   sudo chmod +x ./rg
   sudo cp ./rg /usr/local/bin/rg
+  sdo apt-get install starship
+  sudo apt-get install grc
 fi
 
 echo "installing vim, xclip"

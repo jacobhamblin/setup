@@ -115,3 +115,6 @@ b_frontend() {
   sudo chown jacob:jacob -R theme/static
   gulp dev
 }
+
+eval "$(starship init bashrc)"
+[[ -s "/etc/profile.d/grc.bashrc" ]] && source /etc/profile.d/grc.bashrc
