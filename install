@@ -45,6 +45,7 @@ python3 -m pipx ensurepath
 source ~/.bashrc
 pipx install black
 pipx install isort
+pipx install pre-commit
 
 echo "installing nvm, node"
 git clone https://github.com/creationix/nvm.git ~/.nvm
