@@ -11,13 +11,15 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   brew install ripgrep
   brew install starship
   brew install grc
+  brew install httpie
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
   echo "installing tmux, ripgrep, starship, grc"
   sudo apt-get install tmux
   sudo chmod +x ./rg
   sudo cp ./rg /usr/local/bin/rg
-  sdo apt-get install starship
+  sudo apt-get install starship
   sudo apt-get install grc
+  sudo apt-get install httpie
 fi
 
 echo "installing vim, xclip"
