@@ -17,7 +17,7 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
   sudo apt-get install tmux
   sudo chmod +x ./rg
   sudo cp ./rg /usr/local/bin/rg
-  sudo apt-get install starship
+  curl -fsSL https://starship.rs/install.sh | bash
   sudo apt-get install grc
   sudo apt-get install httpie
 fi

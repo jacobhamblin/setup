@@ -116,5 +116,5 @@ b_frontend() {
   gulp dev
 }
 
-eval "$(starship init bashrc)"
+eval "$(starship init bash)"
 [[ -s "/etc/profile.d/grc.bashrc" ]] && source /etc/profile.d/grc.bashrc
