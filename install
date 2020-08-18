@@ -25,6 +25,7 @@ fi
 echo "installing vim, xclip"
 sudo apt-get install vim
 sudo apt-get install xclip
+sudo apt-get install libnotify-bin
 
 echo "installing ripgrep, fzf"
 sudo chmod +x ./fzf
