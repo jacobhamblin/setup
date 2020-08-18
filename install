@@ -22,10 +22,13 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
   sudo apt-get install httpie
 fi
 
-echo "installing vim, xclip"
+echo "installing vim, puush"
 sudo apt-get install vim
 sudo apt-get install xclip
 sudo apt-get install libnotify-bin
+# add API key to puush file
+sudo chmod +x ./puush
+sudo cp ./puush /usr/local/bin/puush
 
 echo "installing ripgrep, fzf"
 sudo chmod +x ./fzf
