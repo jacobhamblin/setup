@@ -93,7 +93,7 @@ if [[ $OS == "linux" ]]; then
   else
     sudo apt-get install python3-venv
     sudo apt-get install python3-pip
-    sudo apt-get install docker
+    sudo apt-get install docker.io
   fi
   sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
   sudo chmod +x /usr/local/bin/docker-compose
