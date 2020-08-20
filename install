@@ -1,9 +1,33 @@
 #!/bin/bash
 
-echo "updating package lists"
-sudo apt-get update
+if [[ $OSTYPE == darwin* ]]; then
+    OS='mac'
+elif [[ $OSTYPE == linux-gnu* ]]; then
+    OS='linux'
+else
+    OS='unknown'
+fi
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
+DISTROSTR=`lsb_release -i | cut -f 2-`
+
+if [[ $OS == "linux" ]]; then
+  if [[ $DISTROSTR == "ManjaroLinux" ]]; then
+    DISTRO="manjaro"
+  else
+    DISTRO="ubuntu"
+  fi
+fi
+
+echo "updating package lists"
+if [[ $OS == "linux"* ]]; then
+  if [[ $DISTRO = "manjaro" ]]; then
+    sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
+  else
+    sudo apt-get update
+  fi
+fi
+
+if [[ $OS == "mac"* ]]; then
   echo "installing brew, tmux, ripgrep, starship, grc"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   brew cask install iterm2
@@ -12,20 +36,33 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   brew install starship
   brew install grc
   brew install httpie
-elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+elif [[ $OS == "linux"* ]]; then
   echo "installing tmux, ripgrep, starship, grc"
-  sudo apt-get install tmux
+  if [[ $DISTRO = "manjaro" ]]; then
+    sudo pamac install tmux
+    sudo pamac install httpie
+  else
+    sudo apt-get install tmux
+    sudo apt-get install grc
+    sudo apt-get install httpie
+  fi
   sudo chmod +x ./rg
   sudo cp ./rg /usr/local/bin/rg
   curl -fsSL https://starship.rs/install.sh | bash
-  sudo apt-get install grc
-  sudo apt-get install httpie
 fi
 
 echo "installing vim, puush"
-sudo apt-get install vim
-sudo apt-get install xclip
-sudo apt-get install libnotify-bin
+if [[ $OS == "linux" ]]; then
+  if [[ $DISTRO = "manjaro" ]]; then
+    sudo pamac install vim
+    sudo pamac install xclip
+    sudo pamac install libnotify-bin
+  else
+    sudo apt-get install vim
+    sudo apt-get install xclip
+    sudo apt-get install libnotify-bin
+  fi
+fi
 # add API key to puush file
 sudo chmod +x ./puush
 sudo cp ./puush /usr/local/bin/puush
@@ -38,18 +75,28 @@ sudo cp ./.vimrc ~/.vimrc
 sudo cp ./.tmux.conf ~/.tmux.conf
 sudo cp ./.tmux.conf.local ~/.tmux.conf.local
 sudo cp ./.terminal-config-cross-platform ~/.terminal-config-cross-platform
-sudo cp ./.bashrc ~/.bashrc
+if [[ $OS == "linux" ]]; then
+  if [[ $DISTRO == "ubuntu" ]]; then
+    sudo cp ./.bashrc ~/.bashrc
+  fi
+fi
 sudo cp ./.gitconfig ~/.gitconfig
 sudo cp ./.gitignore_global ~/.gitignore_global
 
-echo "installing pipx, debian for now"
-sudo apt-get install python3-pip
-python3 -m pip install --user pipx
-python3 -m pipx ensurepath
-source ~/.bashrc
-pipx install black
-pipx install isort
-pipx install pre-commit
+if [[ $OS == "linux" ]]; then
+  echo "installing pipx, linux for now"
+  if [[ $DISTRO = "manjaro" ]]; then
+    sudo pamac install python3-pip
+  else
+    sudo apt-get install python3-pip
+  fi
+  python3 -m pip install --user pipx
+  python3 -m pipx ensurepath
+  source ~/.bashrc
+  pipx install black
+  pipx install isort
+  pipx install pre-commit
+fi
 
 echo "installing nvm, node"
 git clone https://github.com/creationix/nvm.git ~/.nvm
