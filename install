@@ -75,11 +75,7 @@ sudo cp ./.vimrc ~/.vimrc
 sudo cp ./.tmux.conf ~/.tmux.conf
 sudo cp ./.tmux.conf.local ~/.tmux.conf.local
 sudo cp ./.terminal-config-cross-platform ~/.terminal-config-cross-platform
-# if [[ $OS == "linux" ]]; then
-  # if [[ $DISTRO == "ubuntu" ]]; then
-    # sudo cp ./.bashrc ~/.bashrc
-  # fi
-# fi
+cat ./.bashrc ~/.bashrc
 sudo cp ./.gitconfig ~/.gitconfig
 sudo cp ./.gitignore_global ~/.gitignore_global
 
