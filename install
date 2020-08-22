@@ -119,4 +119,11 @@ echo "couple tweaks"
 echo fs.inotify.max_user_watches=16384 | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
 
+if [[ $OS == "linux" ]]; then
+  echo "battle.net dependencies"
+  if [[ $DISTRO = "manjaro" ]]; then
+    pamac install lib32-gnutl
+  fi
+fi
+
 echo "finish!"
