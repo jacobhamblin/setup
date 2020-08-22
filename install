@@ -126,4 +126,8 @@ if [[ $OS == "linux" ]]; then
   fi
 fi
 
+# system-specific
+# sudo echo "### turn off timer-based scheduling" >> /etc/pulse/default.pa
+# sudo echo "load-module module-udev-detect tsched=0" >> /etc/pulse/default.pa
+
 echo "finish!"
