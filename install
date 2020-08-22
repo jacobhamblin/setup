@@ -86,7 +86,6 @@ sudo cp ./.gitignore_global ~/.gitignore_global
 if [[ $OS == "linux" ]]; then
   echo "installing pipx, docker, linux for now"
   if [[ $DISTRO = "manjaro" ]]; then
-    sudo pamac install python3-pip
     sudo pamac install docker
     sudo systemctl start docker
     sudo systemctl enable docker
@@ -99,6 +98,8 @@ if [[ $OS == "linux" ]]; then
   sudo chmod +x /usr/local/bin/docker-compose
   sudo groupadd docker
   sudo usermod -aG docker $USER
+  sudo gpasswd -a $USER docker
+  newgrp docker
   python3 -m pip install --user pipx
   python3 -m pipx ensurepath
   source ~/.bashrc
