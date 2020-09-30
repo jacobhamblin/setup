@@ -66,6 +66,14 @@ get_ip() {
   ip addr | grep eth0
 }
 
+pi() {
+  ssh pi@192.168.1.146
+}
+
+expose() {
+  lt --port 8000 --subdomain jacobbevy
+}
+
 export EDITOR=$(which vi)
 export BEVY_VARIATION=demo
 

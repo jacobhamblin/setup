@@ -104,12 +104,12 @@ if [[ $OS == "linux" ]]; then
   pipx install pre-commit
 fi
 
-echo "installing nvm, node"
+echo "installing nvm, node, gulp, prettier, localtunnel"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 source ~/.bashrc
 nvm install node
 nvm use node
-npm install -g babel-cli gulp gulp-cli prettier
+npm install -g babel-cli gulp gulp-cli prettier localtunnel
 
 echo "couple tweaks"
 echo fs.inotify.max_user_watches=16384 | sudo tee -a /etc/sysctl.conf
