@@ -26,6 +26,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'prettier/vim-prettier'
 Plug 'garbas/vim-snipmate'
 Plug 'tpope/vim-surround'
+Plug 'tomlion/vim-solidity'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 call plug#end()
