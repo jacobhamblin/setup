@@ -1,3 +1,4 @@
 # setup
 - clone repo
-- `./setup/install`
+- `./setup/install -y`
+- 
