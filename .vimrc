@@ -72,3 +72,4 @@ let $FZF_DEFAULT_COMMAND='rg --files'
 hi link javaScriptTemplateDelim String
 hi link javaScriptTemplateVar Text
 hi link javaScriptTemplateString String
+let g:snipMate = { 'snippet_version' : 1 }
