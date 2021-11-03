@@ -9,9 +9,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [[ ! $TERM =~ screen ]]; then
-    exec tmux -2
-fi
+# if [[ ! $TERM =~ screen ]]; then
+#     exec tmux -2
+# fi
 
 [ -f ~/.terminal-config-cross-platform ] && source ~/.terminal-config-cross-platform
 
