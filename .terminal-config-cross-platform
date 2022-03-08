@@ -23,12 +23,12 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-scommit() {
-  git commit -am "[SGP-$1] $2"
+asc() {
+  git commit -am "[ASC-$1] $2"
 }
 
-boe() {
-  git commit -am "[BOE-$1] $2"
+tele() {
+  git commit -am "[TELE-$1] $2"
 }
 
 alias install_req='docker-compose exec app pip install -r ../requirements.txt'
