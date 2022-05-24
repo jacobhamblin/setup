@@ -23,12 +23,8 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-asc() {
-  git commit -am "[ASC-$1] $2"
-}
-
-tele() {
-  git commit -am "[TELE-$1] $2"
+vp() {
+  git commit -am "[VP-$1] $2"
 }
 
 alias install_req='docker-compose exec app pip install -r ../requirements.txt'
@@ -67,11 +63,15 @@ get_ip() {
 }
 
 pi() {
-  ssh pi@192.168.88.249
+  ssh pi@192.168.88.231
 }
 
 expose() {
   lt --port 8000 --subdomain jacobbevy
+}
+
+expose_port() {
+  lt --port $1 --subdomain lawlerblader
 }
 
 export EDITOR=$(which vi)
@@ -81,4 +81,16 @@ b_frontend() {
   docker-compose stop frontend
   chown jacob:jacob -R theme/static
   gulp dev
+}
+
+ssh_work() {
+  eval `ssh-agent`
+  ssh-add ~/.ssh/id_rsa_work
+  ssh -T git@github.com
+}
+
+ssh_personal() {
+  eval `ssh-agent`
+  ssh-add ~/.ssh/id_rsa
+  ssh -T git@github.com
 }
