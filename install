@@ -28,7 +28,7 @@ if [[ $OS == "linux"* ]]; then
 fi
 
 if [[ $OS == "mac"* ]]; then
-  echo "installing brew, tmux, ripgrep, starship, grc"
+  echo "installing brew, tmux, ripgrep, starship, grc, ani-cli"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   brew cask install iterm2
   brew install tmux
@@ -36,8 +36,9 @@ if [[ $OS == "mac"* ]]; then
   brew install starship
   brew install grc
   brew install httpie
+  brew install curl grep aria2 mpv openssl@1.1 ffmpeg git
 elif [[ $OS == "linux"* ]]; then
-  echo "installing tmux, ripgrep, starship, grc"
+  echo "installing tmux, ripgrep, starship, grc, ani-cli"
   if [[ $DISTRO = "manjaro" ]]; then
     sudo pamac install tmux
     sudo pamac install httpie
@@ -49,6 +50,10 @@ elif [[ $OS == "linux"* ]]; then
   sudo chmod +x ./rg
   sudo cp ./rg /usr/local/bin/rg
   curl -sS https://starship.rs/install.sh | sh
+  sudo apt-get install mpv
+  sudo apt-get install aria2
+  sudo curl -sL github.com/pystardust/ani-cli/raw/master/ani-cli -o /usr/local/bin/ani-cli &&
+  sudo chmod +x /usr/local/bin/ani-cli
 fi
 
 echo "installing vim, puush"
