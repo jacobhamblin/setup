@@ -48,7 +48,7 @@ elif [[ $OS == "linux"* ]]; then
   fi
   sudo chmod +x ./rg
   sudo cp ./rg /usr/local/bin/rg
-  curl -fsSL https://starship.rs/install.sh | bash
+  curl -sS https://starship.rs/install.sh | sh
 fi
 
 echo "installing vim, puush"
