@@ -83,6 +83,10 @@ b_frontend() {
   gulp dev
 }
 
+razer() {
+  ssh jacob@192.168.88.201
+}
+
 ssh_work() {
   eval `ssh-agent`
   ssh-add ~/.ssh/id_rsa_work
