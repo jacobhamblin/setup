@@ -98,3 +98,7 @@ ssh_personal() {
   ssh-add ~/.ssh/id_rsa
   ssh -T git@github.com
 }
+
+update_gignore_cache() {
+  git update-index --assume-unchanged $1
+}
