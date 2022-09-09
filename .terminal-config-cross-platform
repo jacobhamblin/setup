@@ -102,3 +102,24 @@ ssh_personal() {
 update_gignore_cache() {
   git update-index --assume-unchanged $1
 }
+
+rem_zone() {
+  cd ~ && find . -name "*:Zone.Identifier" -type f -delete
+}
+
+venv() {
+  python3 -m venv .venv
+  source .venv/bin/activate
+}
+
+sado() {
+  ssh root@143.198.70.162
+}
+
+val_server() {
+  ssh ubuntu@152.70.156.131
+}
+}
+}
+}
+}
