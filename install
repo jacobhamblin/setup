@@ -87,9 +87,9 @@ sudo cp ./.gitignore_global ~/.gitignore_global
 if [[ $OS == "linux" ]]; then
   echo "installing pipx, docker, linux for now"
   if [[ $DISTRO = "manjaro" ]]; then
-    sudo pamac install docker
-    sudo systemctl start docker
-    sudo systemctl enable docker
+    # sudo pamac install docker
+    # sudo systemctl start docker
+    # sudo systemctl enable docker
   else
     sudo apt-get install python3-venv
     sudo apt-get install python3-pip
