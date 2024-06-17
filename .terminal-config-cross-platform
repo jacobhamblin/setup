@@ -119,3 +119,21 @@ sado() {
 val_server() {
   ssh ubuntu@152.70.156.131
 }
+
+minecraft_server() {
+  ssh ubuntu@129.153.121.61
+}
+
+saoci() {
+  ssh ubuntu@131.186.3.49
+}
+
+media() {
+  echo "192.168.88.143"
+}
+
+pi() {
+  ssh jcb@192.168.88.193
+}
+
+export PATH="/home/$USER/bin:$PATH"
