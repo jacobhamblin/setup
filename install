@@ -90,6 +90,7 @@ if [[ $OS == "linux" ]]; then
     # sudo pamac install docker
     # sudo systemctl start docker
     # sudo systemctl enable docker
+    echo "no more docker"
   else
     sudo apt-get install python3-venv
     sudo apt-get install python3-pip
